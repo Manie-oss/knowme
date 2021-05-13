@@ -79,17 +79,26 @@ var arrayQuestions = [{
     }
 ]
 
-for (var i = 0; i < arrayQuestions.length; i++) {
-    playGame(arrayQuestions[i].ques, arrayQuestions[i].ans);
-}
-
-
-function playGame(ques, ans) {
-    var userInput = readlineSync.question(ques);
-    if (userInput === ans) {
+function myGame(ques, ans) {
+    var answer = readlineSync.question(ques);
+    if (answer === ans) {
+        console.log("right!");
         score++;
-        console.log("Your Current Score: ", score);
+        console.log("your current score is: ", score)
+        console.log("_____________________________________________________________");
+        console.log(" ");
     } else {
-        console.log("Your Current Score: ", score);
+        console.log("Wrong!");
+        console.log("_____________________________________________________________");
+        console.log(" ");
     }
 }
+
+console.log("Answer these questions to know how much do you know about Friends.");
+
+for (var i = 0; i < arrayQuestions.length; i++) {
+    myGame(arrayQuestions[i].ques, arrayQuestions[i].ans);
+}
+console.log(" ");
+
+console.log("your total score is: ", score);
